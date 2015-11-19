@@ -470,5 +470,8 @@ Client._register('remove_subscriptions', method='PATCH', url='users/me/subscript
 Client._register('get_subscribers', method='GET',
                  computed_url=lambda request: 'streams/%s/members' % (urllib.quote(request['stream'], safe=''),),
                  make_request=_kwargs_to_dict)
+Client._register('stream_exists', method='GET',
+                 computed_url=lambda request: 'streams/%s' %(urllib.quote(request['stream'], safe=''),),
+                 make_request=_kwargs_to_dict)
 Client._register('render_message', method='GET', url='messages/render')
 Client._register('create_user', method='POST', url='users')

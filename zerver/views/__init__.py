@@ -1673,7 +1673,7 @@ def json_stream_exists(request, user_profile, stream=REQ,
                        autosubscribe=REQ(default=False)):
     return stream_exists_backend(request, user_profile, stream, autosubscribe)
 
-def stream_exists_backend(request, user_profile, stream_name, autosubscribe):
+def stream_exists_backend(request, user_profile, stream_name, autosubscribe=False):
     if not valid_stream_name(stream_name):
         return json_error("Invalid characters in stream name")
     stream = get_stream(stream_name, user_profile.realm)
